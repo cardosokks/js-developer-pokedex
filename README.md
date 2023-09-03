@@ -8,5 +8,6 @@ CSS3
 JAVASCRIPT
 
 # ScreenShot
-![image](https://github.com/cardosokks/pokedex_dio/assets/106789759/b72a73d7-eebe-400a-9c39-92d144fe0617)
+![image](https://github.com/cardosokks/js-developer-pokedex/assets/106789759/b292d56f-cd29-40dc-9cb6-32702c8a8cb1)
+
 
