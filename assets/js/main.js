@@ -27,10 +27,12 @@ function traduction(string) { // Essa função irá traduzir os tipos de pokemon
 
 }
 
+
 function loadPokemonItens(offset, limit){
+
     pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
         const newHtml = pokemons.map((pokemon) => `
-        <li class="pokemon ${pokemon.type}">
+        <li class="pokemon ${pokemon.type}" onClick="selectPokemon(${pokemon.number})">
             <span class="number">#${pokemon.number}</span>
             <span class="name">${traduction(pokemon.name)}</span>
             <div class="detail">
@@ -38,12 +40,75 @@ function loadPokemonItens(offset, limit){
                     ${pokemon.types.map((type) => `<li class="type ${type}">${traduction(type)}</li>`).join("")}
                 </ol>
                 <img src="${pokemon.photo}" alt="${pokemon.name}">
+                
             </div>
         </li>
     `).join('')
         pokemonListOl.innerHTML += newHtml 
     })
     
+}
+
+const selectPokemon = async (id) =>{
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res = await fetch(url)
+    const pokemon = await res.json()
+    displayPopup(pokemon)
+}
+
+const displayPopup = (pokemon) =>{
+   
+    const types = pokemon.types.map((typeSlot) => typeSlot.type.name)
+    const [type] = types
+
+    pokemon.types = types
+    pokemon.type = type
+ 
+    const photo = pokemon.sprites.other.dream_world.front_default
+    const htmlString = `
+   
+    <div id="popup">
+      <div id="detailPokemon">
+          <button id="closeBtn" onClick="closePopup()">Voltar</button>
+            <li class="pokemon ${pokemon.type}">
+            <span class="name">${pokemon.name}</span>
+            <span class="number">#${pokemon.id.toString().padStart(3,"0")}</span>
+
+            <div class="detail">
+                <ol class="types">
+                    ${pokemon.types.map((type) =>`<li class="type ${type}">${type}</li>`).join('')}
+                </ol>
+            </div>
+                 <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
+                
+                 <div id="data">
+                 <h4> Estatísticas</h4>
+                 <div id="hability">
+                 <div class="stat-desc">
+                  ${pokemon.stats.map((name_stats) =>`<p class="${type}">${name_stats.stat.name}</p>`).join('')}
+                 </div>
+                 <div class="bar-inner"> ${pokemon.stats.map((base_stats) =>`<p class="${type}">${base_stats.base_stat}</p>`).join('')}</div>
+                 </div>
+                 <div id="stats">
+                     <div class="stat-bar">
+                         <p>Altura: ${(pokemon.height/10).toFixed(2)}m</p>
+                         <p>Largura: ${(pokemon.weight/10)}kg</p>
+                       </div>
+                </div>
+             </div>
+           </div>
+        </div>
+     </li>
+          
+            
+    `
+   
+    pokemonList.innerHTML = htmlString + pokemonList.innerHTML
+}
+
+const closePopup = () =>{
+    const popup = document.getElementById('popup')
+    popup.parentElement.removeChild(popup)
 }
 
 loadPokemonItens(offset, limit);
