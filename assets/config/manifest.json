@@ -1,0 +1,58 @@
+{
+  "short_name": "POKEDEX",
+  "name": "POKEDEX",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "id": "/",
+  "start_url": "/",
+  "background_color": "white",
+  "display": "fullscreen",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "shortcuts": [
+    {
+      "name": "Pokedex",
+      "short_name": "POKEDEX",
+      "description": "Biblioteca dos pokemons",
+      "url": "/",
+      "icons": [{ "src": "logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Pokedex",
+      "short_name": "POKEDEX",
+      "description": "Biblioteca dos pokemons",
+      "url": "/",
+      "icons": [{ "src": "logo.png", "sizes": "192x192" }]
+    }
+  ],
+  "description": "Biblioteca dos pokemons",
+  "screenshots": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "540x720",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "logo.png",
+      "type": "image/jpg",
+      "sizes": "720x540",
+      "form_factor": "wide"
+    }
+  ]
+}

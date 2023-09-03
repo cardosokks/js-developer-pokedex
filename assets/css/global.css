@@ -3,22 +3,69 @@
     box-sizing: border-box;
 }
 
-body {
-    background-color: #f6f8fc;
+body{
+    background-image: url("https://www.pngkit.com/png/detail/446-4464430_pokemon-pokeball-game-go-icon-free-pokemon-go.png");
+    overscroll-behavior-block:auto;
+    background-repeat:repeat-x repeat-y;
+    background-size: 5%;
 }
+
 
 .content {
-    width: 100vw;
-    height: 100vh;
+    
     padding: 1rem;
-    background-color: #fff;
+    background-color: #f1f1f1;
+    height: 100vh;
+    border-style: solid;
+    border-color: black;
+    
+    
 }
 
-@media screen and (min-width: 992px) {
-    .content {
-        max-width: 992px;
+.content .titulo{
+    padding:1rem;
+}
+
+@media screen and (min-width: 380px) {
+
+    .content{
+        max-width: 100vh;
         height: auto;
-        margin: 1rem auto;
+        margin: 0 auto;
+        border-radius: 0;
+        
+    }
+}
+
+@media screen and (min-width: 576px) {
+
+    .content{
+        max-width: 100vh;
+        height: auto;
+        margin: 0 auto;
         border-radius: 1rem;
     }
 }
+
+@media screen and (min-width: 768px) {
+
+    .content{
+        max-width: 100vh;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 1rem;
+    }
+}
+
+@media screen and (min-width: 992px) {
+
+    .content{
+        max-width: 992px;
+        height: auto;
+        margin: 0 auto;
+        border-radius: 1rem;
+    }
+}
+
+
+
