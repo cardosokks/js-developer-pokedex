@@ -6,7 +6,7 @@ let offset = 0; // Inicio
 
 function traduction(string) { // Essa função irá traduzir os tipos de pokemons para pt/br
     if (string == "normal") { string = "Normal"}
-    else if (string == "grass") { string = "Folha"}
+    else if (string == "grass") { string = "Grama"}
     else if (string == "poison") {string = "Veneno"}
     else if (string == "fire") {string = "Fogo"}
     else if (string == "bug") {string = "Inseto"}
@@ -57,7 +57,6 @@ const selectPokemon = async (id) =>{
 }
 
 const displayPopup = (pokemon) =>{
-   
     const types = pokemon.types.map((typeSlot) => typeSlot.type.name)
     const [type] = types
 
@@ -68,42 +67,40 @@ const displayPopup = (pokemon) =>{
     const htmlString = `
    
     <div id="popup">
-      <div id="detailPokemon">
-          <button id="closeBtn" onClick="closePopup()">Voltar</button>
+        <div id="detailPokemon">
             <li class="pokemon ${pokemon.type}">
-            <span class="name">${pokemon.name}</span>
-            <span class="number">#${pokemon.id.toString().padStart(3,"0")}</span>
+                <a id="closeBtn" onClick="closePopup()">FECHAR</a>
+                <span class="name-dentro">${pokemon.name}</span>
+                <span class="number-dentro">#${pokemon.id.toString().padStart(3,"0")}</span>
 
-            <div class="detail">
-                <ol class="types">
-                    ${pokemon.types.map((type) =>`<li class="type ${type}">${type}</li>`).join('')}
-                </ol>
-            </div>
-                 <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">
-                
-                 <div id="data">
-                 <h4> Estatísticas</h4>
-                 <div id="hability">
-                 <div class="stat-desc">
-                  ${pokemon.stats.map((name_stats) =>`<p class="${type}">${name_stats.stat.name}</p>`).join('')}
-                 </div>
-                 <div class="bar-inner"> ${pokemon.stats.map((base_stats) =>`<p class="${type}">${base_stats.base_stat}</p>`).join('')}</div>
-                 </div>
-                 <div id="stats">
-                     <div class="stat-bar">
-                         <p>Altura: ${(pokemon.height/10).toFixed(2)}m</p>
-                         <p>Largura: ${(pokemon.weight/10)}kg</p>
-                       </div>
+                <div class="detail">
+                    <ol class="types">
+                        ${pokemon.types.map((type) =>`<li class="type ${type}">${traduction(type)}</li>`).join('')}
+                    </ol>
                 </div>
-             </div>
-           </div>
-        </div>
-     </li>
-          
-            
+                <img id="img-pokemon" src="${photo}"alt="${pokemon.name}">   
+                <div id="data">
+                    <h4> Estatísticas</h4>
+                    <div id="hability">
+                        <div class="stat-desc">
+                            ${pokemon.stats.map((name_stats) =>`<p class="${type}">${name_stats.stat.name}</p>`).join('')}
+                        </div>
+                        <div class="bar-inner"> ${pokemon.stats.map((base_stats) =>`<p class="${type}">${base_stats.base_stat}</p>`).join('')}</div>
+                        </div>
+                        <div id="stats">
+                            <div class="stat-bar">
+                                <p>Altura: ${(pokemon.height/10).toFixed(2)}m</p>
+                                <p>Largura: ${(pokemon.weight/10)}kg</p>     
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </div>  
+    </div>        
     `
    
-    pokemonList.innerHTML = htmlString + pokemonList.innerHTML
+    pokemonList.innerHTML += htmlString
 }
 
 const closePopup = () =>{
