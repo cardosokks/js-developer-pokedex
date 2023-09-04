@@ -1,6 +1,7 @@
 # Pokedex + API (DIO)
 
 Projeto feito baseado no conhecimento adquirido na plataforma DIO
+Acesse: https://cardosokks.github.io/js-developer-pokedex/
 
 ##Tecnologias utilizadas:
 - HTML5
