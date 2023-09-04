@@ -1,13 +1,19 @@
 # Pokedex + API (DIO)
 
-Em processo de criação
-Tecnologias utilizadas:
+Projeto feito baseado no conhecimento adquirido na plataforma DIO
 
-HTML5
-CSS3
-JAVASCRIPT
+##Tecnologias utilizadas:
+- HTML5
+- CSS3
+- JAVASCRIPT
 
-# ScreenShot
-![image](https://github.com/cardosokks/js-developer-pokedex/assets/106789759/b292d56f-cd29-40dc-9cb6-32702c8a8cb1)
+### Pagina Inicial
+
+![image](https://github.com/cardosokks/js-developer-pokedex/assets/106789759/3c76b24a-07d8-4f91-8d30-f7737cd56e4e)
 
 
+### Pagina Pokemon
+![image](https://github.com/cardosokks/js-developer-pokedex/assets/106789759/12def387-cbb3-4c8b-8e71-60ece057d704)
+
+Created by: Ricardo Jhonny R. Cardoso
+Social Media: /cardosokks
